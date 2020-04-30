@@ -20,3 +20,27 @@ exports.modifyHtml = (filePath) => {
 
   fs.writeFileSync(filePath, markup);
 };
+
+const checkForCats = () => (tree) => {
+  visit(tree, 'text', (node) => {
+    if (node.value.match(/\bcats?\b/)) {
+      console.error('no cats allowed!');
+      throw new Error('no cats allowed!');
+    }
+  });
+};
+
+exports.noCatsAllowed = (filePath) => {
+  try {
+    const markup = unified()
+      .use(parse)
+      .use(checkForCats)
+      .use(stringify)
+      .processSync(fs.readFileSync(filePath))
+      .toString();
+
+    fs.writeFileSync(filePath, markup);
+  } catch (err) {
+    throw new Error('cats detected!');
+  }
+};
