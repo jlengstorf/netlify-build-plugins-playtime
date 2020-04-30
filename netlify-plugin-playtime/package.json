@@ -1,0 +1,20 @@
+{
+  "name": "netlify-plugin-playtime",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "glob": "^7.1.6",
+    "hastscript": "^5.1.2",
+    "rehype-parse": "^6.0.2",
+    "rehype-stringify": "^7.0.0",
+    "unified": "^9.0.0",
+    "unist-util-visit": "^2.0.2"
+  }
+}
